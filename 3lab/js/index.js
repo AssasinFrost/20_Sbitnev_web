@@ -1,11 +1,11 @@
 let balans = 100;
 
-function GetRandoSymb() {
-    const symbs = ['🍒', '🍋', '🔔', '⭐', '🍉', '7️⃣'];
-    return symbs[Math.floor(Math.random() * symbs.length)];
+function getRandoSymb() {
+    const SYMBOLS = ['🍒', '🍋', '🔔', '⭐', '🍉', '7️⃣'];
+    return SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
 }
 
-function UpdBalansDisp() {
+function updBalansDisp() {
     let balansDisp = document.getElementById("balansDisp");
     if (!balansDisp) {
         balansDisp = document.createElement("div");
@@ -26,7 +26,7 @@ function UpdBalansDisp() {
     balansDisp.textContent = `💰 Баланс: ${balans} монет`;
 }
 
-function Dodep() {
+function dodep() {
     let sumka = prompt("Введите сумму для пополнения (число):");
     if (!sumka) {
         alert("Вы отменили пополнение!");
@@ -40,14 +40,14 @@ function Dodep() {
     }
     
     balans += sumka;
-    UpdBalansDisp();
+    updBalansDisp();
     alert(`Баланс успешно пополнен на ${sumka} монет!`);
 }
 
-function Kazinych() {
+function kazinych() {
     if (balans <= 0) {
         if (confirm("Ваш баланс равен 0. Хотите пополнить счет?")) {
-            Dodep();
+            dodep();
         }
         return;
     }
@@ -75,9 +75,9 @@ function Kazinych() {
     
     balans -= stavka;
     
-    let slotik1 = GetRandoSymb();
-    let slotik2 = GetRandoSymb();
-    let slotik3 = GetRandoSymb();
+    let slotik1 = getRandoSymb();
+    let slotik2 = getRandoSymb();
+    let slotik3 = getRandoSymb();
     
     alert(`Результат: ${slotik1} | ${slotik2} | ${slotik3}`);
     
@@ -89,11 +89,11 @@ function Kazinych() {
         alert("Ай яй яй, какая жалость, повезет в другой раз!");
     }
     
-    UpdBalansDisp();
+    updBalansDisp();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    UpdBalansDisp();
+    updBalansDisp();
     
     const btnBox = document.createElement("div");
     btnBox.style.textAlign = "center";
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
     playBtn.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.3)";
     playBtn.onmouseover = function() { playBtn.style.backgroundColor = "#ff6347"; };
     playBtn.onmouseout = function() { playBtn.style.backgroundColor = "#ff4500"; };
-    playBtn.onclick = Kazinych;
+    playBtn.onclick = kazinych;
     
     let dropBtn = document.createElement("button");
     dropBtn.textContent = "💰 Пополнить баланс";
@@ -129,14 +129,14 @@ document.addEventListener("DOMContentLoaded", function() {
     dropBtn.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.3)";
     dropBtn.onmouseover = function() { dropBtn.style.backgroundColor = "#00a000"; };
     dropBtn.onmouseout = function() { dropBtn.style.backgroundColor = "#008000"; };
-    dropBtn.onclick = Dodep;
+    dropBtn.onclick = dodep;
     
     btnBox.appendChild(playBtn);
     btnBox.appendChild(dropBtn);
     
     let footr = document.querySelector("footer");
     if (footr) {
-        footr.parentNode.insertBefore(btnBox, footr);
+        footr.parentNode.insert17.insertBefore(btnBox, footr);
     } else {
         document.body.appendChild(btnBox);
     }
