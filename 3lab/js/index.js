@@ -15,11 +15,14 @@ function updBalansDisp() {
         balansDisp.style.fontWeight = "bold";
         balansDisp.style.color = "#008000";
         balansDisp.style.textAlign = "center";
+        balansDisp.style.position = "relative";
+        balansDisp.style.zIndex = "1000";
         
         const headr = document.querySelector("header");
         if (headr) {
             headr.insertAdjacentElement("afterend", balansDisp);
         } else {
+            console.warn("Элемент <header> не найден, баланс добавлен в начало <body>");
             document.body.insertBefore(balansDisp, document.body.firstChild);
         }
     }
@@ -111,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
     playBtn.style.fontWeight = "bold";
     playBtn.style.cursor = "pointer";
     playBtn.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.3)";
+    playBtn.style.fontFamily = "'Segoe UI Emoji', 'Arial', sans-serif";
     playBtn.onmouseover = function() { playBtn.style.backgroundColor = "#ff6347"; };
     playBtn.onmouseout = function() { playBtn.style.backgroundColor = "#ff4500"; };
     playBtn.onclick = kazinych;
@@ -127,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
     dropBtn.style.fontWeight = "bold";
     dropBtn.style.cursor = "pointer";
     dropBtn.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.3)";
+    dropBtn.style.fontFamily = "'Segoe UI Emoji', 'Arial', sans-serif";
     dropBtn.onmouseover = function() { dropBtn.style.backgroundColor = "#00a000"; };
     dropBtn.onmouseout = function() { dropBtn.style.backgroundColor = "#008000"; };
     dropBtn.onclick = dodep;
@@ -136,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     let footr = document.querySelector("footer");
     if (footr) {
-        footr.parentNode.insert17.insertBefore(btnBox, footr);
+        footr.parentNode.insertBefore(btnBox, footr);
     } else {
         document.body.appendChild(btnBox);
     }
