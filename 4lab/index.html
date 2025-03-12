@@ -4,6 +4,9 @@
     <title>Earthshaker - лучшее средство от насекомых</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/media.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -12,7 +15,6 @@
         <div class="header_text">
             <h1>Сэкономь! Купи Earthshaker со скидкой в 1%</h1>
         </div>
-        <button id="theme-toggle">Темная тема</button>
     </header>
     <main>
         <div class="slide1">
@@ -107,15 +109,50 @@
                 </div>
             </div>
         </div>
-        <!-- Секция отзывов -->
-        <section class="reviews">
-            <h2>Отзывы</h2>
-            <div id="reviews-list"></div>
-            <form id="review-form">
-                <textarea id="review-text" placeholder="Напишите ваш отзыв" rows="4" cols="50"></textarea>
-                <button type="submit">Отправить отзыв</button>
+        <div class="reviews-container">
+            <h2 class="reviews-form-title">Добавить отзыв</h2>
+            <form id="review-form" enctype="multipart/form-data" class="reviews-form">
+                <label for="name" class="form-label">Имя:</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+                
+                <label for="text" class="form-label">Текст отзыва:</label>
+                <textarea id="text" name="text" class="form-input" required></textarea>
+                
+                <label for="rating" class="form-label">Оценка:</label>
+                <input type="number" id="rating" name="rating" class="form-input" min="1" max="5" required>
+                
+                <label for="image" class="form-label">Изображение отзыва:</label>
+                <input type="file" id="image" name="image" class="form-input" accept="image/*">
+                
+                <label for="avatar" class="form-label">Аватарка:</label>
+                <input type="file" id="avatar" name="avatar" class="form-input" accept="image/*">
+                
+                <button type="submit" class="form-submit-btn">Добавить отзыв</button>
             </form>
-        </section>
+
+    
+            <h2 class="reviews-title">Отзывы</h2>
+            <div id="reviews-list" class="reviews-list"></div>
+    
+            <div class="reviews-filters">
+                <label for="filter-rating" class="filter-label">Фильтр по оценке:</label>
+                <select id="filter-rating" class="filter-select">
+                    <option value="all">Все</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                
+                <label for="sort-rating" class="filter-label">Сортировка по оценке:</label>
+                <select id="sort-rating" class="filter-select">
+                    <option value="asc">По возрастанию</option>
+                    <option value="desc">По убыванию</option>
+                </select>
+            </div>
+        </div>
+    </body>
     </main>
     <footer class="footer">
         <div class="footer_link">
@@ -126,6 +163,7 @@
             <p>© 2024 Earthshaker. Все права защищены</p>
         </div>
     </footer>
-    <script src="js/index.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/index.js"></script> 
 </body>
 </html>

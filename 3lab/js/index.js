@@ -1,148 +1,114 @@
-let balans = 100;
-
-function getRandoSymb() {
-    const SYMBOLS = ['🍒', '🍋', '🔔', '⭐', '🍉', '7️⃣'];
-    return SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
-}
-
-function updBalansDisp() {
-    let balansDisp = document.getElementById("balansDisp");
-    if (!balansDisp) {
-        balansDisp = document.createElement("div");
-        balansDisp.id = "balansDisp";
-        balansDisp.style.fontSize = "20px";
-        balansDisp.style.marginTop = "10px";
-        balansDisp.style.fontWeight = "bold";
-        balansDisp.style.color = "#008000";
-        balansDisp.style.textAlign = "center";
-        balansDisp.style.position = "relative";
-        balansDisp.style.zIndex = "1000";
+document.addEventListener("DOMContentLoaded", function () {
+    // Логика для всплывающей рекламы
+    function createAdP() {
+        const ad = document.createElement("div");
+        ad.style.position = "fixed";
+        ad.style.width = "200px";
+        ad.style.height = "150px";
+        ad.style.background = "url('res/advert.png') center center / cover no-repeat";
+        ad.style.backgroundSize = "cover";
+        ad.style.color = "white";
+        ad.style.display = "flex";
+        ad.style.justifyContent = "center";
+        ad.style.alignItems = "center";
+        ad.style.fontSize = "16px";
+        ad.style.zIndex = "9999";
+        ad.style.border = "2px solid white";
+        ad.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
+        ad.style.cursor = "pointer";
         
-        const headr = document.querySelector("header");
-        if (headr) {
-            headr.insertAdjacentElement("afterend", balansDisp);
+        ad.style.top = Math.random() * (window.innerHeight - 150) + "px";
+        ad.style.left = Math.random() * (window.innerWidth - 200) + "px";
+        
+        ad.innerHTML = `
+            <a href="https://steamcommunity.com/profiles/76561198992885494/" target="_blank"></a>
+            <button style="
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            ">X</button>
+        `;
+
+        ad.addEventListener("click", function () {
+            window.open("https://steamcommunity.com/profiles/76561198992885494/", "_blank");
+        });
+        ad.querySelector("button").addEventListener("click", function (event) {
+            event.stopPropagation();
+            ad.remove();
+            createAdP();
+            createAdP();
+        });
+        
+        document.body.appendChild(ad);
+    }
+    
+    createAdP();
+
+    // Логика для переключения темы
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Функция для установки темы
+    function setTheme(theme) {
+        if (theme === "dark") {
+            body.classList.add("dark-theme");
+            themeToggle.textContent = "Светлая тема";
         } else {
-            console.warn("Элемент <header> не найден, баланс добавлен в начало <body>");
-            document.body.insertBefore(balansDisp, document.body.firstChild);
+            body.classList.remove("dark-theme");
+            themeToggle.textContent = "Темная тема";
+        }
+        document.cookie = `theme=${theme}; path=/; max-age=31536000`; // Сохраняем на год
+    }
+
+    // Проверка сохраненной темы в cookies
+    const savedTheme = document.cookie.split("; ").find(row => row.startsWith("theme="))?.split("=")[1];
+    setTheme(savedTheme || "light");
+
+    // Переключение темы по клику
+    themeToggle.addEventListener("click", () => {
+        const currentTheme = body.classList.contains("dark-theme") ? "dark" : "light";
+        setTheme(currentTheme === "light" ? "dark" : "light");
+    });
+
+    // Логика для отзывов
+    const reviewForm = document.getElementById("review-form");
+    const reviewText = document.getElementById("review-text");
+    const reviewsList = document.getElementById("reviews-list");
+
+    // Функция для загрузки отзывов из cookies
+    function loadReviews() {
+        const reviews = document.cookie.split("; ").find(row => row.startsWith("reviews="))?.split("=")[1];
+        if (reviews) {
+            const reviewArray = JSON.parse(decodeURIComponent(reviews));
+            reviewArray.forEach(review => addReviewToList(review));
         }
     }
-    balansDisp.textContent = `💰 Баланс: ${balans} монет`;
-}
 
-function dodep() {
-    let sumka = prompt("Введите сумму для пополнения (число):");
-    if (!sumka) {
-        alert("Вы отменили пополнение!");
-        return;
+    // Функция для добавления отзыва в список
+    function addReviewToList(review) {
+        const reviewItem = document.createElement("div");
+        reviewItem.classList.add("review-item");
+        reviewItem.textContent = review;
+        reviewsList.appendChild(reviewItem);
     }
-    
-    sumka = parseInt(sumka);
-    if (isNaN(sumka) || sumka <= 0) {
-        alert("Введите корректное положительное число!");
-        return;
-    }
-    
-    balans += sumka;
-    updBalansDisp();
-    alert(`Баланс успешно пополнен на ${sumka} монет!`);
-}
 
-function kazinych() {
-    if (balans <= 0) {
-        if (confirm("Ваш баланс равен 0. Хотите пополнить счет?")) {
-            dodep();
+    // Загрузка отзывов при старте
+    loadReviews();
+
+    // Обработка отправки формы
+    reviewForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const review = reviewText.value.trim();
+        if (review) {
+            addReviewToList(review);
+
+            // Сохранение отзыва в cookies
+            const existingReviews = document.cookie.split("; ").find(row => row.startsWith("reviews="))?.split("=")[1];
+            const reviewArray = existingReviews ? JSON.parse(decodeURIComponent(existingReviews)) : [];
+            reviewArray.push(review);
+            document.cookie = `reviews=${encodeURIComponent(JSON.stringify(reviewArray))}; path=/; max-age=31536000`; // Сохраняем на год
+
+            reviewText.value = ""; // Очистка поля ввода
         }
-        return;
-    }
-    
-    if (!confirm("Занести котлету в казиныч?")) {
-        return;
-    }
-    
-    let stavka = prompt("Введите вашу ставку (число):", "10");
-    if (!stavka) {
-        alert("Вы отменили ставку!");
-        return;
-    }
-    
-    stavka = parseInt(stavka);
-    if (isNaN(stavka) || stavka <= 0) {
-        alert("Некорректная ставка! Введите положительное число.");
-        return;
-    }
-    
-    if (stavka > balans) {
-        alert("Недостаточно средств! Пополните баланс.");
-        return;
-    }
-    
-    balans -= stavka;
-    
-    let slotik1 = getRandoSymb();
-    let slotik2 = getRandoSymb();
-    let slotik3 = getRandoSymb();
-    
-    alert(`Результат: ${slotik1} | ${slotik2} | ${slotik3}`);
-    
-    if (slotik1 === slotik2 && slotik2 === slotik3) {
-        let vin = stavka * 10;
-        balans += vin;
-        alert(`Поздравляем! Вы выиграли ${vin} монет!`);
-    } else {
-        alert("Ай яй яй, какая жалость, повезет в другой раз!");
-    }
-    
-    updBalansDisp();
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    updBalansDisp();
-    
-    const btnBox = document.createElement("div");
-    btnBox.style.textAlign = "center";
-    btnBox.style.margin = "20px 0";
-
-    let playBtn = document.createElement("button");
-    playBtn.textContent = "🎰 Играть в казиныч 🎰";
-    playBtn.style.padding = "15px 30px";
-    playBtn.style.fontSize = "20px";
-    playBtn.style.margin = "0 10px";
-    playBtn.style.border = "none";
-    playBtn.style.borderRadius = "12px";
-    playBtn.style.backgroundColor = "#ff4500";
-    playBtn.style.color = "#ffffff";
-    playBtn.style.fontWeight = "bold";
-    playBtn.style.cursor = "pointer";
-    playBtn.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.3)";
-    playBtn.style.fontFamily = "'Segoe UI Emoji', 'Arial', sans-serif";
-    playBtn.onmouseover = function() { playBtn.style.backgroundColor = "#ff6347"; };
-    playBtn.onmouseout = function() { playBtn.style.backgroundColor = "#ff4500"; };
-    playBtn.onclick = kazinych;
-    
-    let dropBtn = document.createElement("button");
-    dropBtn.textContent = "💰 Пополнить баланс";
-    dropBtn.style.padding = "15px 30px";
-    dropBtn.style.fontSize = "20px";
-    dropBtn.style.margin = "0 10px";
-    dropBtn.style.border = "none";
-    dropBtn.style.borderRadius = "12px";
-    dropBtn.style.backgroundColor = "#008000";
-    dropBtn.style.color = "#ffffff";
-    dropBtn.style.fontWeight = "bold";
-    dropBtn.style.cursor = "pointer";
-    dropBtn.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.3)";
-    dropBtn.style.fontFamily = "'Segoe UI Emoji', 'Arial', sans-serif";
-    dropBtn.onmouseover = function() { dropBtn.style.backgroundColor = "#00a000"; };
-    dropBtn.onmouseout = function() { dropBtn.style.backgroundColor = "#008000"; };
-    dropBtn.onclick = dodep;
-    
-    btnBox.appendChild(playBtn);
-    btnBox.appendChild(dropBtn);
-    
-    let footr = document.querySelector("footer");
-    if (footr) {
-        footr.parentNode.insertBefore(btnBox, footr);
-    } else {
-        document.body.appendChild(btnBox);
-    }
+    });
 });
