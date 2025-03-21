@@ -1,0 +1,353 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Контейнер с героями */
+#heroes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Карточка героя */
+.hero-card {
+    background-color: #333;
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* Кнопка удаления героя */
+.delete-hero {
+    background: red;
+    border: none;
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.delete-hero:hover {
+    background: darkred;
+}
+
+/* Изображение персонажа */
+.character-image {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Заголовки */
+h2, h3 {
+    margin: 10px 0;
+    color: #f39c12;
+}
+
+/* Характеристики */
+.stats-block {
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.stats-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.stats-block li {
+    margin: 5px 0;
+    padding: 5px;
+    background: #555;
+    border-radius: 5px;
+}
+
+/* Инвентарь */
+.inventory-block {
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.inventory-slot {
+    width: 60px;
+    height: 60px;
+    background: #555;
+    border: 2px solid #777;
+    border-radius: 5px;
+}
+
+/* Кастомные блоки */
+.custom-block {
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.custom-block h3 {
+    color: #f1c40f;
+}
+
+/* Кнопка удаления блока */
+.delete-block {
+    background: red;
+    border: none;
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    float: right;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.delete-block:hover {
+    background: darkred;
+}
+
+/* Панель управления */
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button, select {
+    background: #f39c12;
+    border: none;
+    color: black;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover, select:hover {
+    background: #e67e22;
+}
+
+/* Поля ввода в режиме редактирования */
+input, textarea {
+    background: #555;
+    color: white;
+    border: 1px solid #777;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Кнопка "Добавить блок" */
+.add-block {
+    background: #2ecc71;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-block:hover {
+    background: #27ae60;
+}
+
+
+.image-upload {
+    display: none;
+}
+
+.image-label {
+    cursor: pointer;
+}
+
+.image-label:hover img {
+    opacity: 0.7;
+}
+
+.shop {
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.shop-items {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.shop-item {
+    width: 60px;
+    height: 60px;
+    cursor: grab;
+}
+
+.inventory-item {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: grab;
+}
+
+.shop {
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.shop-items {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.shop-item-container {
+    text-align: center;
+    background: #555;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100px;
+}
+
+.shop-item {
+    width: 60px;
+    height: 60px;
+    cursor: grab;
+}
+
+.shop-item-container p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.shop-item-container small {
+    display: block;
+    font-size: 12px;
+    color: #bbb;
+}
+
+
+.shop-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.shop-form input {
+    padding: 5px;
+    background: #555;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.shop-form button {
+    background: #2ecc71;
+    border: none;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.shop-form button:hover {
+    background: #27ae60;
+}
+
+.delete-shop-item {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.delete-shop-item:hover {
+    background: darkred;
+}
+
+.shop-item-container {
+    position: relative;
+    text-align: center;
+    background: #555;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.shop-item-container:hover {
+    transform: scale(1.05);
+}
+
+.shop-sell-area {
+    border: 2px dashed #aaa;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #333;
+    color: #ccc;
+    font-style: italic;
+    transition: background-color 0.3s ease;
+}
+.shop-sell-area:hover {
+    background-color: #444;
+}
