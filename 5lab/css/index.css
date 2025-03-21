@@ -1,4 +1,3 @@
-/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     background-color: #222;
@@ -8,7 +7,6 @@ body {
     padding: 20px;
 }
 
-/* Контейнер с героями */
 #heroes-container {
     display: flex;
     flex-wrap: wrap;
@@ -16,7 +14,6 @@ body {
     justify-content: center;
 }
 
-/* Карточка героя */
 .hero-card {
     background-color: #333;
     border: 2px solid #555;
@@ -28,7 +25,6 @@ body {
     position: relative;
 }
 
-/* Кнопка удаления героя */
 .delete-hero {
     background: red;
     border: none;
@@ -50,7 +46,6 @@ body {
     background: darkred;
 }
 
-/* Изображение персонажа */
 .character-image {
     width: 100%;
     max-height: 180px;
@@ -58,13 +53,11 @@ body {
     border-radius: 8px;
 }
 
-/* Заголовки */
 h2, h3 {
     margin: 10px 0;
     color: #f39c12;
 }
 
-/* Характеристики */
 .stats-block {
     background: #444;
     padding: 10px;
@@ -84,7 +77,6 @@ h2, h3 {
     border-radius: 5px;
 }
 
-/* Инвентарь */
 .inventory-block {
     background: #444;
     padding: 10px;
@@ -107,7 +99,6 @@ h2, h3 {
     border-radius: 5px;
 }
 
-/* Кастомные блоки */
 .custom-block {
     background: #444;
     padding: 10px;
@@ -119,7 +110,6 @@ h2, h3 {
     color: #f1c40f;
 }
 
-/* Кнопка удаления блока */
 .delete-block {
     background: red;
     border: none;
@@ -139,7 +129,6 @@ h2, h3 {
     background: darkred;
 }
 
-/* Панель управления */
 .controls {
     display: flex;
     gap: 10px;
@@ -161,7 +150,6 @@ button:hover, select:hover {
     background: #e67e22;
 }
 
-/* Поля ввода в режиме редактирования */
 input, textarea {
     background: #555;
     color: white;
@@ -172,7 +160,6 @@ input, textarea {
     text-align: center;
 }
 
-/* Кнопка "Добавить блок" */
 .add-block {
     background: #2ecc71;
     border: none;
@@ -187,7 +174,6 @@ input, textarea {
 .add-block:hover {
     background: #27ae60;
 }
-
 
 .image-upload {
     display: none;
@@ -265,7 +251,6 @@ input, textarea {
     font-size: 12px;
     color: #bbb;
 }
-
 
 .shop-form {
     display: flex;
