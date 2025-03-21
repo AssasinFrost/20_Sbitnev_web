@@ -396,12 +396,12 @@ function loadFromLocalStorage() {
         const dlanvasItem = {
             name: "Длань Васецкого",
             description: "Карает неугодных студентов в радиусе 5 метров. Снижает получаемые баллы на 15%",
-            image: "../res/dlan.png"
+            image: "./res/dlan.png"
         };
         const coffeItem = {
             name: "Бодрящий кофе",
             description: "Повышает бодрость на 100%, помогает быстрее проснуться.",
-            image: "../res/coffe.png"
+            image: "./res/coffe.png"
         };
         shopItems.push(dlanvasItem);
         shopItems.push(coffeItem);
@@ -410,7 +410,7 @@ function loadFromLocalStorage() {
         const vasecHero = new HeroCard(
             "hero-1",
             "Васецкий",
-            "../res/Vasetski.jpg", 
+            "./res/Vasetski.jpg", 
             { Сила: 1, Ловкость: 1, Интеллект: 100, Урон: "100 - 118", Броня: "не пробиваемый", Скорость: 5 },
             [dlanvasItem, null, null, null, null, null],
             [
@@ -421,7 +421,7 @@ function loadFromLocalStorage() {
         const nikHero = new HeroCard(
             "hero-2",
             "Никита",
-            "../res/nik.jpg", 
+            "./res/nik.jpg", 
             { Сила: 27, Ловкость: 25, Интеллект: 120, Урон: "120 - 128", Броня: 30, Скорость: 50 },
             [null, null, null, null, null, null],
             [
