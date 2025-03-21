@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Earthshaker - лучшее средство от насекомых</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header class="header">
+        <div class="header_text">
+            <h1>Сэкономь! Купи Earthshaker со скидкой в 1%</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="slide1">
+            <div class="slide1_block1">
+                <a href="index.html">
+                    <div class="slide1_block1_imgshaker">
+                        <img src="res/logo_shaker.png" alt="Логотип Earthshaker">
+                    </div>
+                </a>
+                <div class="slide1_block1_text">ДЛЯ ДОТЫ</div>
+                <div class="slide1_block1_text">100% ПОМОЖЕТ</div>
+                <div class="slide1_block1_text">ОТВЕЧАЕМ</div>
+                <div class="slide1_block1_text">ЛИЧНО ТИТАНА БРАЛ</div>
+                <div class="slide1_block1_imgcart"><img src="res/cart.svg" alt="Корзина"></div>
+            </div>
+            <div class="slide1_block2">
+                <div class="slide1_block2_text">Dr. Shaker - очистит от 100% ползучих гадов и прочей нечисти</div>
+            </div>
+            <div class="slide1_block3">
+                <img src="res/earthshaker.png" alt="Earthshaker">
+            </div>
+            <div class="slide1_block4">
+                <div class="slide1_block4_weawer">
+                    <img src="res/weawer.png" alt="Weaver">
+                </div>
+                <div class="slide1_block4_button">
+                    <a href="https://yoomoney.ru/fundraise/18LL7F4A23A.250227" class="slide1_block4_button_text">Купить сейчас</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide2">
+            <div class="slide2_shakercast"><img src="res/shakercast.png" alt="Shakercast"></div>
+            <div class="slide2_block">
+                <div class="slide2_block_element">
+                    <div class="slide2_img"><img src="res/skull.png" alt="Череп"></div>
+                    <div class="slide2_texthead" style="color: #196010;">1000% Токсичности</div>
+                    <div class="slide2_text">Задуши противника, ставь паузу после каждого килла!</div>
+                </div>
+                <div class="slide2_block_element">
+                    <div class="slide2_img"><img src="res/tip.png" alt="Совет"></div>
+                    <div class="slide2_texthead" style="color: #9E6B10;">100% Уважения</div>
+                    <div class="slide2_text">Все тиммейты будут хвалить тебя в каждой катке</div>
+                </div>
+                <div class="slide2_block_element">
+                    <div class="slide2_img"><img src="res/trophy.png" alt="Трофей"></div>
+                    <div class="slide2_texthead" style="color: #FDCE7C;">0% Поражений</div>
+                    <div class="slide2_text">Ну почти, если у вас не кривые руки</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide3">
+            <div class="slide3_texthead">Что по сборке?</div>
+            <div class="slide3_img"><img src="res/earth_cool.png" alt="Earthshaker Cool"></div>
+
+            <div class="slide3_block1">
+                <div class="slide3_block_header" style="background: #25A71E;">
+                    Refresher
+                    <img src="res/refresher.png" alt="Refresher" style="width: 59px; height: 58px; margin-left: 20px;">
+                </div>
+                <div class="slide3_block_bottom">
+                    <div class="slide3_block_text">
+                        Рефрешер поможет убить до 200% насекомых, работает даже после выкупа.
+                        С ним количество насекомых уменьшится в 3 раза.
+                        Успей купить всего за 5000 <img src="res/gold.png" alt="Gold" style="margin-top: 5px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide3_block2">
+                <div class="slide3_block_header" style="background: #50716F;">
+                    Blink Dagger
+                    <img src="res/dagger.png" alt="Dagger" style="width: 59px; height: 58px; margin-left: 20px;">
+                </div>
+                <div class="slide3_block_bottom">
+                    <div class="slide3_block_text">
+                        Блинк поможет добраться до 99.9% насекомых.
+                        Входит в покупаемый набор Shaker с доплатой всего 2250
+                        <img src="res/gold.png" alt="Gold" style="margin-top: 5px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-container">
+            <h2 class="reviews-form-title">Добавить отзыв</h2>
+            <form id="review-form" enctype="multipart/form-data" class="reviews-form">
+                <label for="name" class="form-label">Имя:</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+
+                <label for="text" class="form-label">Текст отзыва:</label>
+                <textarea id="text" name="text" class="form-input" required></textarea>
+
+                <label for="rating" class="form-label">Оценка:</label>
+                <input type="number" id="rating" name="rating" class="form-input" min="1" max="5" required>
+
+                <label for="image" class="form-label">Изображение отзыва:</label>
+                <input type="file" id="image" name="image" class="form-input" accept="image/*">
+
+                <label for="avatar" class="form-label">Аватарка:</label>
+                <input type="file" id="avatar" name="avatar" class="form-input" accept="image/*">
+
+                <button type="submit" class="form-submit-btn">Добавить отзыв</button>
+            </form>
+
+            <h2 class="reviews-title">Отзывы</h2>
+            <div id="reviews-list" class="reviews-list"></div>
+
+            <div class="reviews-filters">
+                <label for="filter-rating" class="filter-label">Фильтр по оценке:</label>
+                <select id="filter-rating" class="filter-select">
+                    <option value="all">Все</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <label for="sort-rating" class="filter-label">Сортировка по оценке:</label>
+                <select id="sort-rating" class="filter-select">
+                    <option value="asc">По возрастанию</option>
+                    <option value="desc">По убыванию</option>
+                </select>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer_link">
+            <a href="https://vk.com/youarefaggot">Обратная связь</a>
+            <a href="https://www.dota2.com/">Скачать Доту</a>
+        </div>
+        <div class="footer_rules">
+            <p>© 2024 Earthshaker. Все права защищены</p>
+        </div>
+    </footer>
+
+    <script src="js/cookie.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+@import "reset.css";
+
+
+:root {
+    --header-background-color: #834D27;
+    --slide1-background: linear-gradient(152deg, #825536 18.33%, #C2825F 39.62%, #DFB298 65.24%, #F6D0BA 82.21%);
+    --slide1-button-background: #7C3A15;
+    --slide3-background: #F9A469;
+    --slide3_block_bottom-background: #F5F5F5;
+    --slide3_block_text-color: #7c7c7c;
+    --slide3_block_header-color: #FFF;
+    /* Цветовая гамма отзывов */
+    --reviews-container-border: #000000;
+    --reviews-container-background: #ffffff;
+    --review-item-background: #bdbdbd;
+    --reviews-form-title-color: #333;
+    --form-label-color: #555;
+    --form-input-border-color: #ccc;
+    --form-submit-btn-color: #FFF;
+    --form-submit-btn-background-color: #4CAF50;
+    --form-submit-btn-hover-color: #45a049;
+    --review-item-h3-color: #333;
+    --review-item-p-color: #555;
+}
+
+.dark_theme {
+    --header-background-color: #3d2411;
+    --slide1-background: linear-gradient(152deg, #5a341b 18.33%, #805640 39.62%, #4b3021 65.24%, #332116 82.21%);
+    --slide1-button-background: #4e260f;
+    --slide3-background: #7c5a41;
+    --slide3_block_bottom-background: #3d3c3c;
+    --slide3_block_text-color: #bdbdbd;
+    --slide3_block_header-color: #8b8181;
+    /* Цветовая гамма отзывов */
+    --reviews-container-border: #ffffff;
+    --reviews-container-background: #252525;
+    --review-item-background: #505050;
+    --reviews-form-title-color: #ffffff;
+    --form-label-color: #ffffff;
+    --form-input-border-color: #b6b6b6;
+    --form-submit-btn-color: #FFF;
+    --form-submit-btn-background-color: #598f5a;
+    --form-submit-btn-hover-color: #3b553c;
+    --review-item-h3-color: #e7e7e7;
+    --review-item-p-color: #d3d3d3;
+}
+
+
+
+
+
+.main {
+    width: 100vw;
+
+}
+
+.header {
+    background: var(--header-background-color);
+    flex-shrink: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.header_text {
+    color: #FFF;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.slide1 {
+    background: var(--slide1-background);
+    width: 100%;
+    height: 1400px;
+    flex-shrink: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr 3fr 1fr 1fr;
+}
+
+.slide1_block1 {
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 0 100px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.slide1_block1_text {
+    width: 201px;
+    height: 24px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.slide1_block1_imgcart {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.slide1_block1_imgshaker img{
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide1_block2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide1_block2_text {
+    width: 100%;
+    height: 51px;
+    color: #FFF;
+    text-align: center;
+    font-family: "Londrina Solid";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 133%;
+}
+
+.slide1_block3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide1_block4 {
+    display: flex;
+}
+
+.slide1_block4_weawer img{
+    width: 305px;
+    height: 193px;
+    transform: rotate(-30deg);
+    flex-shrink: 0;
+    aspect-ratio: 305/193;
+    border-radius: 9px;
+    margin-left: -90px;
+    z-index: 5;
+    position: absolute;
+}
+
+.slide1_block4_button {
+    z-index: 5;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 256px;
+    height: 68px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: var(--slide1-button-background);
+
+}
+
+.slide1_block4_button_text {
+    color: #FFF;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.slide2 {
+    margin-top: -150px;
+    fill: #30291F;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 1000px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1336" height="863" viewBox="0 0 1336 863" fill="none"><path d="M937.295 15.3402C804.085 -40.9898 569.295 77.3402 425.645 76.2302C331.905 74.0002 239.615 38.7102 148.915 51.1302C71.0153 61.6902 1.92533 30.3401 -68.7847 0.50012L-22.9846 818.128C-22.9846 818.128 150.031 880.257 279.015 858.128C408 836 523.015 806.128 809.015 818.128C1095.02 830.128 1174 866 1342 798C1510 730 1456.9 93.3802 1456.9 93.3802C1363.29 128.19 1373.66 32.2302 1274.9 29.9102C1200.49 28.9302 1007.1 45.7802 937.295 15.3402Z" fill="%2330291F" stroke="%2330291F" stroke-width="2"/></svg>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    gap: 200px;
+    position: relative;
+    z-index: 3;
+
+}
+
+.slide2_shakercast img{
+    display: flex;
+    flex-shrink: 0;
+}
+
+.slide2_block {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.slide2_block_element {
+
+    display: grid;
+    gap: 20px;
+    grid-template-areas: "f f a a a a a a a"
+                         "f f b b b b b b b";
+}
+
+.slide2_img img{
+    grid-area: f;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide2_texthead {
+    grid-area: a;
+    color: #196010;
+    font-family: "Londrina Solid";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.slide2_text {
+    grid-area: b;
+    color: #434343;
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 157.5%;
+    margin-top: -70px;
+}
+
+.slide3 {
+    display: grid;
+    grid-template-areas: "h h h h h h h h h"
+                         "i i i i r r r r r"
+                         "i i i i d d d d d";
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: 1300px;
+    background: var(--slide3-background);
+    margin-top: -60;
+    position: relative;
+    z-index: 2;
+    gap: 0px 50px;
+}
+
+
+.slide3_texthead {
+    grid-area: h;
+    color: var(--Deep-Grey, #434343);
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: "Loved by the King";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 133%;
+}
+
+.slide3_img {
+    grid-area: i;
+    justify-content: center;
+    align-items: center;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="552" height="512" viewBox="0 0 552 512" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M257.191 3.84705C308.093 -4.96556 361.947 0.828983 406.626 26.7771C454.196 54.4045 487.163 100.292 509.703 150.498C534.45 205.623 570.908 272.545 540.362 324.675C508.975 378.238 422.166 354.311 370.301 388.396C322.724 419.663 313.24 500.85 257.191 510.773C201.61 520.612 155.219 469.095 110.716 434.351C67.772 400.824 20.5224 366.825 5.6488 314.391C-9.0013 262.745 6.54018 206.459 32.7903 159.638C56.0035 118.234 102.149 99.8045 141.129 72.7425C179.014 46.4402 211.756 11.7133 257.191 3.84705Z" fill="%23AE673F"/></svg>');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide3_block1 {
+    grid-area: r;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide3_block2 {
+    margin-top: -50px;
+    grid-area: d;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide3_block_header {
+    border-radius: 10px 10px 0px 0px;
+    width: 610px;
+    height: 79.881px;
+    flex-shrink: 0;
+    display: flex;
+    font-family: "Londrina Solid";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--slide3_block_header-color);
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+.slide3_block_bottom {
+    width: 610px;
+    height: 164.119px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 10px 10px;
+    background: var(--slide3_block_bottom-background);
+}
+
+.slide3_block_text {
+    color: var(--slide3_block_text-color);
+    font-family: Ubuntu;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 157.5%;
+}
+
+/* Отзывы */
+
+.reviews-container {
+    padding: 20px;
+    border: 3px solid var(--reviews-container-border);
+    background-color: var(--reviews-container-background);
+    
+}
+
+.reviews-form-title, .reviews-title {
+    text-align: center;
+    color: var(--reviews-form-title-color);
+}
+
+.reviews-title {
+    margin-top: 40pxя;
+}
+
+.reviews-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-label {
+    font-size: 16px;
+    color: var(--form-label-color);
+}
+
+#text {
+    resize: none;
+}
+
+
+.form-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid var(--form-input-border-color);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    color: var(--form-label-color);
+}
+
+.form-input:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.form-input[type="textarea"] {
+    resize: none;
+}
+
+.form-submit-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: var(--form-submit-btn-color);
+    background-color: var(--form-submit-btn-background-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-submit-btn:hover {
+    background-color: var(--form-submit-btn-hover-color);
+}
+
+
+.reviews-list {
+    margin-top: 20px;
+}
+
+.review-item {
+    background-color: var(--review-item-background);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-item img.avatar {
+    width: 50px;             
+    height: 50px;           
+    border-radius: 50%;      
+    margin-right: 10px;       
+}
+
+.review-item h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--review-item-h3-color);
+}
+
+.review-item p {
+    margin: 5px 0;
+    color: var(--review-item-p-color);
+}
+
+.review-item img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.reviews-filters {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.filter-label {
+    margin-right: 10px;
+    color: var(--form-label-color);
+}
+
+.filter-select {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+    background-color: #ffffff;
+}
+
+.filter-select:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+
+
+
+/* Фуиер */
+
+.footer {
+    background: #805a40;
+    flex-shrink: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+
+
+.footer_link {
+    display: flex;
+    gap: 30px;
+}
+
+.footer_link > a {
+    color: #434343;
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    margin-left: 20;
+}
+
+.footer_rules {
+    color: var(--Deep-Grey, #434343);
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 157.5%; 
+    }

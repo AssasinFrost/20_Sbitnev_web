@@ -1,0 +1,475 @@
+@media (min-width: 768px) and (max-width: 1024px) {
+    .header_text h1 {
+        font-size: 18px; 
+    }
+
+    .slide1 {
+        height: 1200px; 
+        padding: 30px 0; 
+    }
+
+    .slide1_block1 {
+        grid-template-columns: repeat(3, 1fr); 
+        margin: 0 50px; 
+        gap: 20px; 
+    }
+
+    .slide1_block1_text {
+        font-size: 16px; 
+    }
+
+    .slide1_block2_text {
+        font-size: 28px;
+        padding: 0 50px;
+    }
+
+    .slide1_block3 img {
+        width: 70%; 
+    }
+
+    .slide1_block4_weawer img {
+        width: 180px; 
+        margin-left: -40px; 
+    }
+
+    .slide1_block4_button {
+        width: 180px; 
+        height: 50px;
+    }
+
+    .slide1_block4_button_text {
+        font-size: 18px; 
+    }
+
+    .slide2 {
+        height: 1000px; 
+        padding: 30px 0; 
+        gap: 60px; 
+    }
+
+    .slide2_block_element {
+        grid-template-areas: "f f" "a a" "b b"; 
+    }
+
+    .slide2_texthead {
+        font-size: 32px; 
+    }
+
+    .slide2_text {
+        font-size: 18px; 
+        margin-top: 0;
+    }
+
+    .slide3 {
+        height: 1300px; 
+        padding: 30px 0;
+        margin-top: -60px;
+        grid-template-areas: "h h" "i i" "r r" "d d"; 
+    }
+
+    .slide3_texthead {
+        font-size: 42px; 
+    }
+
+    .slide3_block_header {
+        width: 100%; 
+        font-size: 26px; 
+    }
+
+    .slide3_block_bottom {
+        width: 100%; 
+    }
+
+    .slide3_block_text {
+        font-size: 18px; 
+    }
+
+    .footer {
+        gap: 30px; 
+    }
+
+    .footer_link a {
+        font-size: 16px; 
+    }
+
+    .footer_rules {
+        font-size: 16px; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    .header_text h1 {
+        font-size: 16px;
+    }
+
+    .slide1 {
+        height: 1000px;
+        padding: 20px 0;
+    }
+
+    .slide1_block1 {
+        grid-template-columns: 1fr;
+        margin: 0 20px;
+        gap: 10px;
+    }
+
+    .slide1_block1_text {
+        font-size: 14px;
+    }
+
+    .slide1_block2_text {
+        font-size: 24px;
+        padding: 0 20px;
+    }
+
+    .slide1_block3 img {
+        width: 60%;
+    }
+
+    .slide1_block4_weawer img {
+        width: 150px;
+        margin-left: -30px;
+    }
+
+    .slide1_block4_button {
+        width: 150px;
+        height: 40px;
+    }
+
+    .slide1_block4_button_text {
+        font-size: 16px;
+    }
+
+    .slide2 {
+        height: 900px;
+        padding: 20px 0;
+        gap: 50px;
+    }
+
+    .slide2_block_element {
+        grid-template-areas: "f f" "a a" "b b";
+    }
+
+    .slide2_texthead {
+        font-size: 30px;
+    }
+
+    .slide2_text {
+        font-size: 16px;
+        margin-top: 0;
+    }
+
+    .slide3 {
+        height: 1200px;
+        padding: 20px 0;
+        grid-template-areas: "h h" "i i" "r r" "d d";
+    }
+
+    .slide3_texthead {
+        font-size: 40px;
+    }
+
+    .slide3_block_header {
+        width: 100%;
+        font-size: 24px;
+    }
+
+    .slide3_block_bottom {
+        width: 100%;
+    }
+
+    .slide3_block_text {
+        font-size: 16px;
+    }
+
+    .footer {
+        gap: 20px;
+    }
+
+    .footer_link a {
+        font-size: 14px;
+    }
+
+    .footer_rules {
+        font-size: 14px;
+    }
+
+    .slide1_block1_imgcart {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .header_text h1 {
+        font-size: 16px;
+    }
+
+    .slide1 {
+        height: 1400px;
+        padding: 20px 0;
+    }
+
+    .slide1_block1 {
+        grid-template-columns: 1fr;
+        margin: 0 20px;
+        gap: 10px;
+    }
+
+    .slide1_block1_text {
+        font-size: 14px;
+    }
+
+    .slide1_block2_text {
+        font-size: 24px;
+        padding: 0 20px;
+    }
+
+    .slide1_block3 img {
+        width: 80%;
+        height: auto;
+    }
+
+    .slide1_block4_weawer img {
+        width: 200px;
+        margin-left: -30px;
+    }
+
+    .slide1_block4_button {
+        width: 200px;
+        height: 50px;
+    }
+
+    .slide1_block4_button_text {
+        font-size: 18px;
+    }
+
+    .slide2 {
+        height: 1200px;
+        padding: 20px 0;
+        gap: 50px;
+    }
+
+    .slide2_block_element {
+        grid-template-areas: "f f" "a a" "b b";
+    }
+
+    .slide2_texthead {
+        font-size: 30px;
+    }
+
+    .slide2_text {
+        font-size: 16px;
+        margin-top: 0;
+    }
+
+    .slide3 {
+        height: 1600px;
+        padding: 20px 0;
+        margin-top: -50px;
+        grid-template-areas: "h h" "i i" "r r" "d d";
+    }
+
+    .slide3_texthead {
+        font-size: 40px;
+    }
+
+    .slide3_block_header {
+        width: 100%;
+        font-size: 24px;
+    }
+
+    .slide3_block_bottom {
+        width: 100%;
+    }
+
+    .slide3_block_text {
+        font-size: 16px;
+    }
+
+    .footer {
+        gap: 20px;
+    }
+
+    .footer_link a {
+        font-size: 14px;
+    }
+
+    .footer_rules {
+        font-size: 14px;
+    }
+
+    .slide1_block1_imgcart {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header_text h1 {
+        font-size: 14px;
+    }
+
+    .slide1 {
+        height: 1000px;
+        padding: 15px 0;
+    }
+
+    .slide1_block1 {
+        margin: 0 10px;
+        gap: 5px;
+    }
+
+    .slide1_block2_text {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+
+    .slide1_block3 img {
+        width: 70%;
+    }
+
+    .slide1_block4_weawer img {
+        width: 150px;
+        margin-left: -20px;
+    }
+
+    .slide1_block4_button {
+        width: 150px;
+        height: 40px;
+    }
+
+    .slide1_block4_button_text {
+        font-size: 16px;
+    }
+
+    .slide2 {
+        height: 1000px;
+        padding: 20px 0;
+        gap: 50px;
+    }
+
+    .slide2_texthead {
+        font-size: 24px;
+    }
+
+    .slide2_text {
+        font-size: 14px;
+    }
+
+    .slide3 {
+        height: 1400px;
+        padding: 20px 0;
+        margin-top: 50px;
+        grid-template-areas: "h h" "i i" "r r" "d d";
+    }
+
+    .slide3_texthead {
+        font-size: 30px;
+    }
+
+    .slide3_block_header {
+        font-size: 20px;
+    }
+
+    .slide3_block_text {
+        font-size: 14px;
+    }
+
+    .footer_link a {
+        font-size: 12px;
+    }
+
+    .footer_rules {
+        font-size: 12px;
+    }
+
+    .slide1_block1_imgcart {
+        display: none;
+    }
+}
+
+@media (max-width: 320px) {
+    .header_text h1 {
+        font-size: 12px;
+    }
+
+    .slide1 {
+        height: 900px;
+        padding: 10px 0;
+    }
+
+    .slide1_block1 {
+        margin: 0 5px;
+        gap: 5px;
+    }
+
+    .slide1_block2_text {
+        font-size: 18px;
+        padding: 0 5px;
+    }
+
+    .slide1_block3 img {
+        width: 60%;
+    }
+
+    .slide1_block4_weawer img {
+        width: 120px;
+        margin-left: -10px;
+    }
+
+    .slide1_block4_button {
+        width: 120px;
+        height: 30px;
+    }
+
+    .slide1_block4_button_text {
+        font-size: 14px;
+    }
+
+    .slide2 {
+        height: 900px;
+        padding: 20px 0;
+        gap: 50px;
+    }
+
+    .slide2_texthead {
+        font-size: 20px;
+    }
+
+    .slide2_text {
+        font-size: 12px;
+    }
+
+    .slide3 {
+        height: 1200px;
+        padding: 20px 0;
+        margin-top: -50px;
+        grid-template-areas: "h h" "i i" "r r" "d d";
+    }
+
+    .slide3_texthead {
+        font-size: 24px;
+    }
+
+    .slide3_block_header {
+        font-size: 18px;
+    }
+
+    .slide3_block_text {
+        font-size: 12px;
+    }
+
+    .footer_link a {
+        font-size: 10px;
+    }
+
+    .footer_rules {
+        font-size: 10px;
+    }
+
+    .slide1_block1_imgcart {
+        display: none;
+    }
+}

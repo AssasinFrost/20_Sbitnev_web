@@ -1,0 +1,124 @@
+@font-face {
+    font-family: 'Horror';
+    src: url('shrft/horror.otf') format('opentype'); 
+    font-weight: normal;
+    font-style: normal;
+  }
+
+p {
+    color: black;
+  }
+  .text1 {
+    color: blue;
+  }
+  .text2 {
+    color: orange;
+  }
+
+.block1 {
+    border: 2px black solid; /* Рамка 2px */
+    width: 600px; /* Ширина блока */
+    height: 150px; /* Высота блока */
+    display: flex;
+    justify-content: center;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+}
+th, td {
+border: 1px solid #3b3939;
+padding: 8px;
+text-align: left;
+}
+th {
+background-color: #636161;
+}
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    overflow: hidden; 
+    background-image: url("image/background.jpg");
+  }
+
+  .side {
+    width: 150px;
+    background-image: url('https://via.placeholder.com/150x150');
+    background-repeat: repeat-y; 
+    background-size: cover; 
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; 
+    text-align: center;
+    padding: 20px;
+    width: 65%;
+    margin-left: 20%;
+    flex: 1;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    color: #000000;
+  }
+
+  p {
+    font-size: 1.2em;
+    color: #424040;
+  }
+
+.border {
+    width: 20%;
+    margin-left: 40%;
+
+}
+
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+
+.header {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 0.9em;
+  width: 100%;
+  overflow: hidden;
+}
+.moving-text {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  animation: moveText 10s linear infinite;
+}
+@keyframes moveText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+  .square-button {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.square-button img {
+    width: 60;
+    height: 60;
+}
