@@ -45,7 +45,7 @@ class HeroCard extends Block {
                         ${Object.entries(this.stats).map(([key, value]) => 
                             `<li><strong>${key}:</strong> 
                                 ${isEditing 
-                                    ? `<input type="number" class="stat-input" data-id="${this.id}" data-key="${key}" value="${value}">`
+                                    ? `<input type="text" class="stat-input" data-id="${this.id}" data-key="${key}" value="${value}">`
                                     : value}
                             </li>`).join('')}
                     </ul>
@@ -70,14 +70,17 @@ class HeroCard extends Block {
     enableEditing() {
         const input = document.querySelector(`.hero-name-input[data-id="${this.id}"]`);
         if (input) this.name = input.value;
-
+    
         document.querySelectorAll(`.stat-input[data-id="${this.id}"]`).forEach(input => {
             const key = input.dataset.key;
-            this.stats[key] = Number(input.value);
+            const value = input.value.trim();
+            const numberValue = Number(value);
+            this.stats[key] = isNaN(numberValue) || value === "" ? value : numberValue;
         });
-
+    
         this.blocks.forEach(block => block.enableEditing());
     }
+    
 }
 
 class CustomBlock extends Block {
@@ -325,7 +328,7 @@ function addHero() {
     const newId = `hero-${Date.now()}`;
     const defaultStats = { Сила: 10, Ловкость: 10, Интеллект: 10, Урон: "10 - 10", Броня: 2, Скорость: 300 };
 
-    heroes.push(new HeroCard(newId, "Новый персонаж", "../res/base.png", defaultStats));
+    heroes.push(new HeroCard(newId, "Новый персонаж", "./res/base.png", defaultStats));
     saveToLocalStorage();
     renderHeroes();
 }
