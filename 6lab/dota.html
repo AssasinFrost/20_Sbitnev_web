@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota Heroes</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-bar">
+            <a href="index.html">Главная</a>
+            <a href="dota.html">Больше персонажей</a>
+            <a href="games.html">ХАЛЯВНЫЕ ИГРЫ</a>
+            <a href="waifus.html">🥵🥵🥵</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Герои Dota 2</h1>
+    
+        <div class="button-bar">
+            <button id="toggle-favorites">Показать только избранных</button>
+            <button id="export-favorites">📥 Экспорт избранных</button>
+            <input type="file" id="import-favorites" accept=".json" style="display: none;">
+            <button id="import-favorites-btn">📤 Импорт избранных</button>
+
+            <span id="favorites-count">💛 Избранных: 0</span>
+        </div>
+    
+        <div id="heroes-container">Загрузка...</div>
+    </main>
+    
+    
+
+    <script src="js/dota.js" defer></script>
+</body>
+</html>
