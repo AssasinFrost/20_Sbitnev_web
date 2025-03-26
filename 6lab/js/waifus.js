@@ -13,7 +13,7 @@ class WaifusManager {
         try {
             const promises = [];
             for (let i = 0; i < cardCount; i++) {
-                promises.push(fetch('https://api.waifu.pics/sfw/waifu').then(res => res.json())); // Заменить на 'https://api.waifu.pics/nsfw/waifu' или 'https://api.waifu.pics/nsfw/blowjob' при желании, только тссс
+                promises.push(fetch('https://api.waifu.pics/sfw/waifu').then(res => res.json())); // Хммм... а причем тут буква n
             }
 
             const waifusData = await Promise.all(promises);
