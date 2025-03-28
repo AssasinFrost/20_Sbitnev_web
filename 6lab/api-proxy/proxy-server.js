@@ -75,7 +75,6 @@ app.put('/favorites', (req, res) => {
   res.json({ status: 'Список заменён', count: data.length });
 });
 
-// DELETE /favorites/:id
 app.delete('/favorites/:id', (req, res) => {
   let favorites = loadFavorites();
   const id = parseInt(req.params.id);
