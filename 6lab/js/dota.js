@@ -1,6 +1,6 @@
 class DotaHeroesManager {
     constructor() {
-        this.favorites = JSON.parse(localStorage.getItem("dotaFavorites") || "[]");
+        this.favorites = [];
         this.showOnlyFavorites = false;
 
         this.container = document.getElementById("heroes-container");
@@ -11,7 +11,7 @@ class DotaHeroesManager {
         this.counter = document.getElementById("favorites-count");
 
         this.setupControls();
-        this.fetchAndRender();
+        this.fetchFavorites().then(() => this.fetchAndRender());
     }
 
     setupControls() {
@@ -26,18 +26,25 @@ class DotaHeroesManager {
         this.importInput.addEventListener("change", (e) => this.importFavorites(e));
     }
 
+    async fetchFavorites() {
+        const res = await fetch("http://localhost:3000/favorites");
+        this.favorites = await res.json();
+    }
+
     async fetchAndRender() {
         this.container.innerHTML = "Загрузка героев...";
-        this.toggleBtn.textContent = this.showOnlyFavorites ? "Показать всех героев" : "Показать только избранных";
         this.counter.textContent = `💛 Избранных: ${this.favorites.length}`;
+        this.toggleBtn.textContent = this.showOnlyFavorites ? "Показать всех героев" : "Показать только избранных";
 
         try {
             const res = await fetch("https://api.opendota.com/api/heroStats");
             const data = await res.json();
-            this.renderHeroes(this.showOnlyFavorites ? data.filter(h => this.isFavorite(h.id)) : data);
+            const filtered = this.showOnlyFavorites
+                ? data.filter(hero => this.isFavorite(hero.id))
+                : data;
+            this.renderHeroes(filtered);
         } catch (err) {
             this.container.innerHTML = `<p style="color: red;">Не удалось загрузить героев 😥</p>`;
-            console.error(err);
         }
     }
 
@@ -68,14 +75,6 @@ class DotaHeroesManager {
                     </ul>
                 </div>
                 <div class="custom-block">
-                    <h3>Роли</h3>
-                    <p>${hero.roles.join(", ")}</p>
-                </div>
-                <div class="custom-block">
-                    <h3>Winrate</h3>
-                    <p>${(hero.pro_win / (hero.pro_pick || 1) * 100).toFixed(1)}%</p>
-                </div>
-                <div class="custom-block">
                     <h3>Заметка</h3>
                     <textarea data-id="${hero.id}" placeholder="Оставьте заметку...">${note}</textarea>
                 </div>
@@ -83,7 +82,6 @@ class DotaHeroesManager {
                     ${fav ? "🗑 Удалить из избранного" : "⭐ В избранное"}
                 </button>
             `;
-
             fragment.appendChild(card);
         });
 
@@ -93,41 +91,48 @@ class DotaHeroesManager {
 
     setupInteractions() {
         document.querySelectorAll(".favorite-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
+            btn.addEventListener("click", async () => {
                 const id = parseInt(btn.dataset.id);
-                const note = document.querySelector(`textarea[data-id='${id}']`).value;
-                const index = this.favorites.findIndex(f => f.id === id);
+                const existing = this.favorites.find(f => f.id === id);
 
-                if (index === -1) {
-                    this.favorites.push({ id, note });
+                if (existing) {
+                    await fetch(`http://localhost:3000/favorites/${id}`, { method: "DELETE" });
                 } else {
-                    this.favorites.splice(index, 1);
+                    const note = document.querySelector(`textarea[data-id='${id}']`).value;
+                    await fetch("http://localhost:3000/favorites", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ id, note })
+                    });
                 }
 
-                this.saveFavorites();
+                await this.fetchFavorites();
                 this.fetchAndRender();
             });
         });
 
         document.querySelectorAll("textarea[data-id]").forEach(area => {
-            area.addEventListener("input", () => {
+            area.addEventListener("input", async () => {
                 const id = parseInt(area.dataset.id);
                 const note = area.value;
                 const fav = this.favorites.find(f => f.id === id);
-
+            
                 if (fav) {
-                    fav.note = note;
+                    await fetch(`http://localhost:3000/favorites/${id}`, {
+                        method: "PATCH",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ note })
+                    });
                 } else {
-                    this.favorites.push({ id, note });
+                    await fetch("http://localhost:3000/favorites", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ id, note })
+                    });
+                    await this.fetchFavorites();
                 }
-
-                this.saveFavorites();
             });
         });
-    }
-
-    saveFavorites() {
-        localStorage.setItem("dotaFavorites", JSON.stringify(this.favorites));
     }
 
     exportFavorites() {
@@ -147,23 +152,20 @@ class DotaHeroesManager {
         if (!file) return;
 
         const reader = new FileReader();
-        reader.onload = (e) => {
+        reader.onload = async (e) => {
             try {
                 const imported = JSON.parse(e.target.result);
-                if (!Array.isArray(imported)) throw new Error("Некорректный формат файла");
+                if (!Array.isArray(imported)) throw new Error("Неверный формат");
 
-                const merged = [...this.favorites];
-
-                imported.forEach(newFav => {
-                    const existing = merged.find(f => f.id === newFav.id);
-                    if (!existing) merged.push(newFav);
-                    else if (newFav.note && !existing.note) existing.note = newFav.note;
+                await fetch("http://localhost:3000/favorites", {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(imported)
                 });
 
-                this.favorites = merged;
-                this.saveFavorites();
+                await this.fetchFavorites();
                 this.fetchAndRender();
-                alert("Импорт завершён успешно!");
+                alert("Импорт завершен");
             } catch (err) {
                 alert("Ошибка импорта: " + err.message);
             }
